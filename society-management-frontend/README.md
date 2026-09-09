@@ -57,4 +57,3 @@ Role permissions are centralized in `src/config/permissions.js`, while demo iden
 | `/amenities` | `amenities` |
 | `/bookings` | `amenity_bookings` |
 
-React must not connect directly to MySQL. A future backend should validate authentication and authorization, hash passwords, expose versioned HTTP endpoints, and perform database operations. The frontend service in `src/services/api.js` is the single replacement point for that integration.
