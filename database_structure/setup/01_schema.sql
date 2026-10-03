@@ -1,6 +1,3 @@
--- Complete schema-only export for Haven Society Management.
--- This recreates all tables, keys, constraints and relationships without sample data.
-
 CREATE DATABASE IF NOT EXISTS society_management
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
