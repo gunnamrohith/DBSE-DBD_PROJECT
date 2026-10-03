@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">Haven Society Management database structure</title>
+  <desc id="description">Table-style database structure showing columns, data types, primary keys and foreign keys for eleven MySQL tables.</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#17324d" flood-opacity="0.12"/>
+    </filter>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#edf8fc"/>
+    </linearGradient>
+    <style>
+      .title { font: 800 30px 'Avenir Next', 'Trebuchet MS', sans-serif; fill: #17324d; }
+      .subtitle { font: 16px 'Avenir Next', 'Trebuchet MS', sans-serif; fill: #607486; }
+      .table-name { font: 800 17px 'Avenir Next', 'Trebuchet MS', sans-serif; fill: #7d3b18; }
+      .field { font: 14px 'Avenir Next', 'Trebuchet MS', sans-serif; fill: #263d50; }
+      .type { font: 13px 'Avenir Next', 'Trebuchet MS', sans-serif; fill: #51697b; }
+      .pk { font: 800 12px 'Avenir Next', 'Trebuchet MS', sans-serif; fill: #c54b32; }
+      .fk { font: 800 12px 'Avenir Next', 'Trebuchet MS', sans-serif; fill: #2872a8; }
+      .rule { stroke: #dfebf0; stroke-width: 1; }
+      .box { fill: #ffffff; stroke: #efa86d; stroke-width: 2; }
+      .header { fill: #ffe8d6; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" rx="28" fill="url(#background)"/>
+  <text x="34" y="48" class="title">DATABASE STRUCTURE</text>
+  <text x="34" y="77" class="subtitle">Haven Society Management · MySQL table dictionary</text>
+  <g transform="translate(1210 32)">
+    <rect width="350" height="52" rx="10" fill="#fff" stroke="#d2e4ec"/>
+    <text x="20" y="32" class="pk">PK</text><text x="48" y="32" class="subtitle">Primary key</text>
+    <text x="174" y="32" class="fk">FK</text><text x="202" y="32" class="subtitle">Foreign key</text>
+  </g>
+
+  <!-- Row 1 -->
+  <g transform="translate(30 112)" filter="url(#shadow)">
+    <rect class="box" width="370" height="230" rx="8"/><path class="header" d="M8 0h354a8 8 0 018 8v31H0V8a8 8 0 018-8z"/>
+    <text x="185" y="26" text-anchor="middle" class="table-name">flats</text>
+    <path class="rule" d="M0 39h370M48 39v191M210 39v191"/>
+    <text x="14" y="64" class="pk">PK</text><text x="58" y="64" class="field">flat_id</text><text x="220" y="64" class="type">INT UNSIGNED</text>
+    <text x="58" y="91" class="field">flat_number</text><text x="220" y="91" class="type">VARCHAR(20)</text>
+    <text x="58" y="118" class="field">block_name</text><text x="220" y="118" class="type">VARCHAR(50)</text>
+    <text x="58" y="145" class="field">floor_number</text><text x="220" y="145" class="type">INT</text>
+    <text x="58" y="172" class="field">flat_type</text><text x="220" y="172" class="type">ENUM</text>
+    <text x="58" y="199" class="field">occupancy_status</text><text x="220" y="199" class="type">ENUM</text>
+  </g>
+
+  <g transform="translate(420 112)" filter="url(#shadow)">
+    <rect class="box" width="370" height="230" rx="8"/><path class="header" d="M8 0h354a8 8 0 018 8v31H0V8a8 8 0 018-8z"/>
+    <text x="185" y="26" text-anchor="middle" class="table-name">residents</text>
+    <path class="rule" d="M0 39h370M48 39v191M210 39v191"/>
+    <text x="14" y="62" class="pk">PK</text><text x="58" y="62" class="field">resident_id</text><text x="220" y="62" class="type">INT UNSIGNED</text>
+    <text x="58" y="86" class="field">resident_name</text><text x="220" y="86" class="type">VARCHAR(100)</text>
+    <text x="58" y="110" class="field">email</text><text x="220" y="110" class="type">VARCHAR(120)</text>
+    <text x="58" y="134" class="field">phone</text><text x="220" y="134" class="type">VARCHAR(15)</text>
+    <text x="58" y="158" class="field">role</text><text x="220" y="158" class="type">ENUM</text>
+    <text x="58" y="182" class="field">resident_type</text><text x="220" y="182" class="type">ENUM</text>
+    <text x="14" y="206" class="fk">FK</text><text x="58" y="206" class="field">flat_id</text><text x="220" y="206" class="type">INT UNSIGNED</text>
+  </g>
+
+  <g transform="translate(810 112)" filter="url(#shadow)">
+    <rect class="box" width="370" height="230" rx="8"/><path class="header" d="M8 0h354a8 8 0 018 8v31H0V8a8 8 0 018-8z"/>
+    <text x="185" y="26" text-anchor="middle" class="table-name">maintenance_bills</text>
+    <path class="rule" d="M0 39h370M48 39v191M210 39v191"/>
+    <text x="14" y="64" class="pk">PK</text><text x="58" y="64" class="field">bill_id</text><text x="220" y="64" class="type">INT UNSIGNED</text>
+    <text x="14" y="91" class="fk">FK</text><text x="58" y="91" class="field">flat_id</text><text x="220" y="91" class="type">INT UNSIGNED</text>
+    <text x="58" y="118" class="field">bill_month</text><text x="220" y="118" class="type">VARCHAR(20)</text>
+    <text x="58" y="145" class="field">amount</text><text x="220" y="145" class="type">DECIMAL(10,2)</text>
+    <text x="58" y="172" class="field">due_date</text><text x="220" y="172" class="type">DATE</text>
+    <text x="58" y="199" class="field">bill_status</text><text x="220" y="199" class="type">ENUM</text>
+  </g>
+
+  <g transform="translate(1200 112)" filter="url(#shadow)">
+    <rect class="box" width="370" height="230" rx="8"/><path class="header" d="M8 0h354a8 8 0 018 8v31H0V8a8 8 0 018-8z"/>
+    <text x="185" y="26" text-anchor="middle" class="table-name">payments</text>
+    <path class="rule" d="M0 39h370M48 39v191M210 39v191"/>
+    <text x="14" y="61" class="pk">PK</text><text x="58" y="61" class="field">payment_id</text><text x="220" y="61" class="type">INT UNSIGNED</text>
+    <text x="14" y="84" class="fk">FK</text><text x="58" y="84" class="field">bill_id</text><text x="220" y="84" class="type">INT UNSIGNED</text>
+    <text x="14" y="107" class="fk">FK</text><text x="58" y="107" class="field">resident_id</text><text x="220" y="107" class="type">INT UNSIGNED</text>
+    <text x="58" y="130" class="field">payment_date</text><text x="220" y="130" class="type">DATE</text>
+    <text x="58" y="153" class="field">amount</text><text x="220" y="153" class="type">DECIMAL(10,2)</text>
+    <text x="58" y="176" class="field">payment_method</text><text x="220" y="176" class="type">ENUM</text>
+    <text x="58" y="199" class="field">transaction_id</text><text x="220" y="199" class="type">VARCHAR(100)</text>
+    <text x="58" y="222" class="field">payment_status</text><text x="220" y="222" class="type">ENUM</text>
+  </g>
+
+  <!-- Row 2 -->
+  <g transform="translate(30 365)" filter="url(#shadow)">
+    <rect class="box" width="370" height="230" rx="8"/><path class="header" d="M8 0h354a8 8 0 018 8v31H0V8a8 8 0 018-8z"/>
+    <text x="185" y="26" text-anchor="middle" class="table-name">complaints</text>
+    <path class="rule" d="M0 39h370M48 39v191M210 39v191"/>
+    <text x="14" y="64" class="pk">PK</text><text x="58" y="64" class="field">complaint_id</text><text x="220" y="64" class="type">INT UNSIGNED</text>
+    <text x="14" y="91" class="fk">FK</text><text x="58" y="91" class="field">resident_id</text><text x="220" y="91" class="type">INT UNSIGNED</text>
+    <text x="58" y="118" class="field">complaint_title</text><text x="220" y="118" class="type">VARCHAR(100)</text>
+    <text x="58" y="145" class="field">complaint_description</text><text x="220" y="145" class="type">VARCHAR(500)</text>
+    <text x="58" y="172" class="field">complaint_date</text><text x="220" y="172" class="type">DATE</text>
+    <text x="58" y="199" class="field">complaint_status</text><text x="220" y="199" class="type">ENUM</text>
+  </g>
+
+  <g transform="translate(420 365)" filter="url(#shadow)">
+    <rect class="box" width="370" height="230" rx="8"/><path class="header" d="M8 0h354a8 8 0 018 8v31H0V8a8 8 0 018-8z"/>
+    <text x="185" y="26" text-anchor="middle" class="table-name">staff</text>
+    <path class="rule" d="M0 39h370M48 39v191M210 39v191"/>
+    <text x="14" y="70" class="pk">PK</text><text x="58" y="70" class="field">staff_id</text><text x="220" y="70" class="type">INT UNSIGNED</text>
+    <text x="58" y="101" class="field">staff_name</text><text x="220" y="101" class="type">VARCHAR(100)</text>
+    <text x="58" y="132" class="field">phone</text><text x="220" y="132" class="type">VARCHAR(15)</text>
+    <text x="58" y="163" class="field">staff_type</text><text x="220" y="163" class="type">ENUM</text>
+    <text x="58" y="194" class="field">address</text><text x="220" y="194" class="type">VARCHAR(200)</text>
+  </g>
+
+  <g transform="translate(810 365)" filter="url(#shadow)">
+    <rect class="box" width="370" height="230" rx="8"/><path class="header" d="M8 0h354a8 8 0 018 8v31H0V8a8 8 0 018-8z"/>
+    <text x="185" y="26" text-anchor="middle" class="table-name">amenities</text>
+    <path class="rule" d="M0 39h370M48 39v191M210 39v191"/>
+    <text x="14" y="78" class="pk">PK</text><text x="58" y="78" class="field">amenity_id</text><text x="220" y="78" class="type">INT UNSIGNED</text>
+    <text x="58" y="115" class="field">amenity_name</text><text x="220" y="115" class="type">VARCHAR(100)</text>
+    <text x="58" y="152" class="field">location</text><text x="220" y="152" class="type">VARCHAR(100)</text>
+    <text x="58" y="189" class="field">availability_status</text><text x="220" y="189" class="type">ENUM</text>
+  </g>
+
+  <g transform="translate(1200 365)" filter="url(#shadow)">
+    <rect class="box" width="370" height="230" rx="8"/><path class="header" d="M8 0h354a8 8 0 018 8v31H0V8a8 8 0 018-8z"/>
+    <text x="185" y="26" text-anchor="middle" class="table-name">amenity_bookings</text>
+    <path class="rule" d="M0 39h370M48 39v191M210 39v191"/>
+    <text x="14" y="62" class="pk">PK</text><text x="58" y="62" class="field">booking_id</text><text x="220" y="62" class="type">INT UNSIGNED</text>
+    <text x="14" y="86" class="fk">FK</text><text x="58" y="86" class="field">resident_id</text><text x="220" y="86" class="type">INT UNSIGNED</text>
+    <text x="14" y="110" class="fk">FK</text><text x="58" y="110" class="field">amenity_id</text><text x="220" y="110" class="type">INT UNSIGNED</text>
+    <text x="58" y="134" class="field">booking_date</text><text x="220" y="134" class="type">DATE</text>
+    <text x="58" y="158" class="field">start_time</text><text x="220" y="158" class="type">TIME</text>
+    <text x="58" y="182" class="field">end_time</text><text x="220" y="182" class="type">TIME</text>
+    <text x="58" y="206" class="field">booking_status</text><text x="220" y="206" class="type">ENUM</text>
+  </g>
+
+  <!-- Row 3 -->
+  <g transform="translate(30 618)" filter="url(#shadow)">
+    <rect class="box" width="370" height="250" rx="8"/><path class="header" d="M8 0h354a8 8 0 018 8v31H0V8a8 8 0 018-8z"/>
+    <text x="185" y="26" text-anchor="middle" class="table-name">visitors</text>
+    <path class="rule" d="M0 39h370M48 39v211M210 39v211"/>
+    <text x="14" y="62" class="pk">PK</text><text x="58" y="62" class="field">visitor_id</text><text x="220" y="62" class="type">INT UNSIGNED</text>
+    <text x="58" y="86" class="field">visitor_name</text><text x="220" y="86" class="type">VARCHAR(100)</text>
+    <text x="58" y="110" class="field">phone</text><text x="220" y="110" class="type">VARCHAR(15)</text>
+    <text x="58" y="134" class="field">purpose</text><text x="220" y="134" class="type">VARCHAR(100)</text>
+    <text x="14" y="158" class="fk">FK</text><text x="58" y="158" class="field">flat_id</text><text x="220" y="158" class="type">INT UNSIGNED</text>
+    <text x="58" y="182" class="field">entry_time</text><text x="220" y="182" class="type">DATETIME</text>
+    <text x="58" y="206" class="field">exit_time</text><text x="220" y="206" class="type">DATETIME</text>
+    <text x="58" y="230" class="field">status</text><text x="220" y="230" class="type">ENUM</text>
+  </g>
+
+  <g transform="translate(420 618)" filter="url(#shadow)">
+    <rect class="box" width="370" height="250" rx="8"/><path class="header" d="M8 0h354a8 8 0 018 8v31H0V8a8 8 0 018-8z"/>
+    <text x="185" y="26" text-anchor="middle" class="table-name">notices</text>
+    <path class="rule" d="M0 39h370M48 39v211M210 39v211"/>
+    <text x="14" y="82" class="pk">PK</text><text x="58" y="82" class="field">notice_id</text><text x="220" y="82" class="type">INT UNSIGNED</text>
+    <text x="58" y="125" class="field">notice_title</text><text x="220" y="125" class="type">VARCHAR(100)</text>
+    <text x="58" y="168" class="field">notice_description</text><text x="220" y="168" class="type">VARCHAR(500)</text>
+    <text x="58" y="211" class="field">notice_date</text><text x="220" y="211" class="type">DATE</text>
+  </g>
+
+  <g transform="translate(810 618)" filter="url(#shadow)">
+    <rect class="box" width="760" height="250" rx="8"/><path class="header" d="M8 0h744a8 8 0 018 8v31H0V8a8 8 0 018-8z"/>
+    <text x="380" y="26" text-anchor="middle" class="table-name">app_users</text>
+    <path class="rule" d="M0 39h760M48 39v211M215 39v211M380 39v211M428 39v211M590 39v211"/>
+    <text x="14" y="72" class="pk">PK</text><text x="58" y="72" class="field">user_id</text><text x="225" y="72" class="type">INT UNSIGNED</text>
+    <text x="58" y="106" class="field">name</text><text x="225" y="106" class="type">VARCHAR(100)</text>
+    <text x="58" y="140" class="field">email</text><text x="225" y="140" class="type">VARCHAR(120)</text>
+    <text x="58" y="174" class="field">password_hash</text><text x="225" y="174" class="type">VARCHAR(255)</text>
+    <text x="58" y="208" class="field">role</text><text x="225" y="208" class="type">ENUM</text>
+    <text x="390" y="72" class="field">account_type</text><text x="600" y="72" class="type">ENUM</text>
+    <text x="394" y="106" class="fk">FK</text><text x="438" y="106" class="field">resident_id</text><text x="600" y="106" class="type">INT UNSIGNED</text>
+    <text x="394" y="140" class="fk">FK</text><text x="438" y="140" class="field">staff_id</text><text x="600" y="140" class="type">INT UNSIGNED</text>
+    <text x="394" y="174" class="fk">FK</text><text x="438" y="174" class="field">flat_id</text><text x="600" y="174" class="type">INT UNSIGNED</text>
+    <text x="438" y="208" class="field">is_active</text><text x="600" y="208" class="type">BOOLEAN</text>
+  </g>
+</svg>

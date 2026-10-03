@@ -1,0 +1,90 @@
+{
+  "info": {
+    "name": "Haven Society API",
+    "description": "End-to-end API checks for the Society Management DBMS project.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "havenBaseUrl", "value": "http://localhost:3001/api" },
+    { "key": "token", "value": "" },
+    { "key": "noticeId", "value": "" },
+    { "key": "currentDate", "value": "" }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "exec": [
+          "pm.collectionVariables.set('currentDate', new Date().toISOString().slice(0, 10));",
+          "const publicRequests = ['1. Health', '2. Login as Admin'];",
+          "if (!publicRequests.includes(pm.info.requestName)) {",
+          "  pm.sendRequest({",
+          "    url: `${pm.collectionVariables.get('havenBaseUrl')}/auth/login`,",
+          "    method: 'POST',",
+          "    header: { 'Content-Type': 'application/json' },",
+          "    body: { mode: 'raw', raw: JSON.stringify({ email: 'admin@havenwoods.in', password: 'admin123' }) },",
+          "  }, (error, response) => {",
+          "    if (error || response.code !== 200) throw new Error('Automatic login failed. Confirm the API and MySQL are running.');",
+          "    pm.collectionVariables.set('token', response.json().token);",
+          "  });",
+          "}"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Health",
+      "request": { "method": "GET", "url": "{{havenBaseUrl}}/health" },
+      "event": [{ "listen": "test", "script": { "exec": ["pm.test('API and MySQL are connected', () => {", "  pm.response.to.have.status(200);", "  pm.expect(pm.response.json().database).to.eql('connected');", "});"] } }]
+    },
+    {
+      "name": "2. Login as Admin",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"email\": \"admin@havenwoods.in\",\n  \"password\": \"admin123\"\n}" },
+        "url": "{{havenBaseUrl}}/auth/login"
+      },
+      "event": [{ "listen": "test", "script": { "exec": ["const body = pm.response.json();", "pm.test('Login returns a JWT', () => {", "  pm.response.to.have.status(200);", "  pm.expect(body.token).to.be.a('string').and.not.empty;", "});", "if (pm.response.code === 200 && body.token) pm.collectionVariables.set('token', body.token);"] } }]
+    },
+    {
+      "name": "3. List Flats",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }],
+        "url": "{{havenBaseUrl}}/flats"
+      },
+      "event": [{ "listen": "test", "script": { "exec": ["pm.test('Flats are returned from MySQL', () => {", "  pm.response.to.have.status(200);", "  pm.expect(pm.response.json()).to.be.an('array').that.is.not.empty;", "});"] } }]
+    },
+    {
+      "name": "4. Create Notice",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"notice_title\": \"Postman API Test\",\n  \"notice_description\": \"Created through the Haven Society Postman collection.\",\n  \"notice_date\": \"{{currentDate}}\"\n}" },
+        "url": "{{havenBaseUrl}}/notices"
+      },
+      "event": [{ "listen": "test", "script": { "exec": ["const body = pm.response.json();", "pm.test('Notice is inserted', () => {", "  pm.response.to.have.status(201);", "  pm.expect(body.notice_id).to.be.a('number');", "});", "if (pm.response.code === 201 && body.notice_id) pm.collectionVariables.set('noticeId', body.notice_id);"] } }]
+    },
+    {
+      "name": "5. Update Notice",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }, { "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"notice_title\": \"Postman API Test Updated\"\n}" },
+        "url": "{{havenBaseUrl}}/notices/{{noticeId}}"
+      },
+      "event": [{ "listen": "test", "script": { "exec": ["pm.test('Notice is updated', () => {", "  pm.response.to.have.status(200);", "  pm.expect(pm.response.json().notice_title).to.eql('Postman API Test Updated');", "});"] } }]
+    },
+    {
+      "name": "6. Delete Notice",
+      "request": {
+        "method": "DELETE",
+        "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+        "url": "{{havenBaseUrl}}/notices/{{noticeId}}"
+      },
+      "event": [{ "listen": "test", "script": { "exec": ["pm.test('Notice is deleted', () => {", "  pm.response.to.have.status(200);", "  pm.expect(pm.response.json().success).to.eql(true);", "});"] } }]
+    }
+  ]
+}

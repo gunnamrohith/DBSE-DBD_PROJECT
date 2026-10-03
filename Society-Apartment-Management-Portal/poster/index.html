@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Haven Society Management - Project Poster</title>
+  <link rel="stylesheet" href="poster.css" />
+</head>
+<body>
+  <main class="poster">
+    <header class="poster-header">
+      <div class="institution-mark" aria-label="KLH University">
+        <span class="mark-kl">KL</span><span class="mark-h">H</span>
+        <small>BACHUPALLY</small>
+      </div>
+      <div class="title-block">
+        <p class="kicker">Database Systems Engineering &amp; Distributed Backend Development</p>
+        <h1>Haven Society Management</h1>
+        <p class="project-meta"><strong>Team 8</strong><span>Section S__</span><span>PBL 2026–27</span></p>
+        <p class="members">Laxman Reddy · 2520030097&nbsp;&nbsp; | &nbsp;&nbsp;Meghanadhi Sai · 2520030274&nbsp;&nbsp; | &nbsp;&nbsp;Surya Prakash Reddy · 2520030145</p>
+        <p class="guide">Guide: Dr. Y Prasanthi &nbsp;·&nbsp; KLH Bachupally Campus, CSE</p>
+      </div>
+    </header>
+
+    <div class="poster-content">
+      <div class="column left-column">
+        <section class="panel panel-coral overview-panel">
+          <div class="section-label">01 · Overview</div>
+          <h2>One workspace for the whole society</h2>
+          <p class="lead">A full-stack platform that replaces scattered registers and spreadsheets with secure, centralized community operations.</p>
+          <div class="metric-row">
+            <div><strong>10</strong><span>Core modules</span></div>
+            <div><strong>7</strong><span>User roles</span></div>
+            <div><strong>1</strong><span>Shared database</span></div>
+          </div>
+        </section>
+
+        <section class="panel panel-blue">
+          <div class="section-label">02 · Problem &amp; Objectives</div>
+          <div class="split-copy">
+            <div>
+              <h3>The problem</h3>
+              <p>Manual records make updates slow, fragmented, and difficult to trace.</p>
+            </div>
+            <div>
+              <h3>Our objectives</h3>
+              <ul class="compact-list">
+                <li>Centralize society records</li>
+                <li>Secure every role and route</li>
+                <li>Track requests and payments</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel panel-mint">
+          <div class="section-label">03 · Core Modules</div>
+          <div class="module-grid">
+            <span>Flats</span><span>Residents</span><span>Visitors</span><span>Staff</span><span>Maintenance</span>
+            <span>Payments</span><span>Complaints</span><span>Notices</span><span>Amenities</span><span>Bookings</span>
+          </div>
+        </section>
+
+        <section class="panel er-panel">
+          <div class="section-label">04 · Relational Database Design</div>
+          <h2>ER diagram</h2>
+          <p class="diagram-note"><b>PK</b> Primary key &nbsp;·&nbsp; <b>FK</b> Foreign key &nbsp;·&nbsp; Lines show table relationships</p>
+          <svg class="er-diagram" viewBox="0 0 760 610" role="img" aria-label="Entity relationship diagram for ten MySQL tables">
+            <defs>
+              <marker id="er-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#76828f" />
+              </marker>
+            </defs>
+            <g class="relations" marker-end="url(#er-arrow)">
+              <path d="M190 112 C250 112 250 112 308 112" />
+              <path d="M190 135 C248 190 246 244 308 270" />
+              <path d="M190 150 C210 250 210 390 308 427" />
+              <path d="M450 138 C510 160 512 213 570 235" />
+              <path d="M450 115 C525 115 520 76 570 76" />
+              <path d="M450 135 C520 245 515 395 570 430" />
+              <path d="M450 292 C510 292 510 270 570 270" />
+              <path d="M450 450 C520 450 515 430 570 430" />
+              <path d="M450 450 C515 510 515 530 570 530" />
+              <path d="M190 508 C250 508 250 480 308 480" />
+            </g>
+
+            <g class="entity entity-primary" transform="translate(28 65)">
+              <rect width="162" height="112" rx="10" />
+              <text class="entity-title" x="14" y="27">FLATS</text>
+              <text x="14" y="52"><tspan class="key">PK</tspan> flat_id</text>
+              <text x="14" y="73">flat_number</text><text x="14" y="94">occupancy_status</text>
+            </g>
+            <g class="entity entity-primary" transform="translate(308 65)">
+              <rect width="142" height="112" rx="10" />
+              <text class="entity-title" x="14" y="27">RESIDENTS</text>
+              <text x="14" y="52"><tspan class="key">PK</tspan> resident_id</text>
+              <text x="14" y="73"><tspan class="fk">FK</tspan> flat_id</text><text x="14" y="94">resident_type</text>
+            </g>
+            <g class="entity" transform="translate(570 28)">
+              <rect width="162" height="112" rx="10" />
+              <text class="entity-title" x="14" y="27">COMPLAINTS</text>
+              <text x="14" y="52"><tspan class="key">PK</tspan> complaint_id</text>
+              <text x="14" y="73"><tspan class="fk">FK</tspan> resident_id</text><text x="14" y="94">complaint_status</text>
+            </g>
+            <g class="entity" transform="translate(308 224)">
+              <rect width="142" height="112" rx="10" />
+              <text class="entity-title" x="14" y="27">BILLS</text>
+              <text x="14" y="52"><tspan class="key">PK</tspan> bill_id</text>
+              <text x="14" y="73"><tspan class="fk">FK</tspan> flat_id</text><text x="14" y="94">bill_status</text>
+            </g>
+            <g class="entity" transform="translate(570 207)">
+              <rect width="162" height="112" rx="10" />
+              <text class="entity-title" x="14" y="27">PAYMENTS</text>
+              <text x="14" y="52"><tspan class="key">PK</tspan> payment_id</text>
+              <text x="14" y="73"><tspan class="fk">FK</tspan> bill_id</text><text x="14" y="94"><tspan class="fk">FK</tspan> resident_id</text>
+            </g>
+            <g class="entity" transform="translate(28 374)">
+              <rect width="162" height="112" rx="10" />
+              <text class="entity-title" x="14" y="27">VISITORS</text>
+              <text x="14" y="52"><tspan class="key">PK</tspan> visitor_id</text>
+              <text x="14" y="73"><tspan class="fk">FK</tspan> flat_id</text><text x="14" y="94">entry_time</text>
+            </g>
+            <g class="entity entity-accent" transform="translate(308 383)">
+              <rect width="142" height="112" rx="10" />
+              <text class="entity-title" x="14" y="27">APP USERS</text>
+              <text x="14" y="52"><tspan class="key">PK</tspan> user_id</text>
+              <text x="14" y="73"><tspan class="fk">FK</tspan> resident_id</text><text x="14" y="94"><tspan class="fk">FK</tspan> staff_id</text>
+            </g>
+            <g class="entity" transform="translate(28 500)">
+              <rect width="162" height="84" rx="10" />
+              <text class="entity-title" x="14" y="27">STAFF</text>
+              <text x="14" y="52"><tspan class="key">PK</tspan> staff_id</text><text x="14" y="73">staff_type</text>
+            </g>
+            <g class="entity" transform="translate(570 382)">
+              <rect width="162" height="96" rx="10" />
+              <text class="entity-title" x="14" y="27">BOOKINGS</text>
+              <text x="14" y="52"><tspan class="fk">FK</tspan> resident_id</text><text x="14" y="73"><tspan class="fk">FK</tspan> amenity_id</text>
+            </g>
+            <g class="entity" transform="translate(570 500)">
+              <rect width="162" height="84" rx="10" />
+              <text class="entity-title" x="14" y="27">AMENITIES</text>
+              <text x="14" y="52"><tspan class="key">PK</tspan> amenity_id</text><text x="14" y="73">availability</text>
+            </g>
+          </svg>
+        </section>
+      </div>
+
+      <div class="column right-column">
+        <section class="panel architecture-panel">
+          <div class="section-label">05 · System Architecture</div>
+          <h2>Secure three-tier workflow</h2>
+          <svg class="architecture-diagram" viewBox="0 0 780 330" role="img" aria-label="React to Express to MySQL architecture diagram">
+            <defs>
+              <marker id="arch-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#243447" />
+              </marker>
+            </defs>
+            <path class="flow-line" d="M238 135 L300 135" marker-end="url(#arch-arrow)" />
+            <path class="flow-line" d="M500 135 L562 135" marker-end="url(#arch-arrow)" />
+            <path class="flow-line return-line" d="M562 178 L500 178" marker-end="url(#arch-arrow)" />
+            <path class="flow-line return-line" d="M300 178 L238 178" marker-end="url(#arch-arrow)" />
+            <g class="arch-node frontend-node" transform="translate(30 72)">
+              <rect width="208" height="150" rx="16" />
+              <text class="node-tag" x="18" y="30">PRESENTATION</text>
+              <text class="node-title" x="18" y="67">React + Vite</text>
+              <text x="18" y="97">Dashboards · Forms</text>
+              <text x="18" y="120">Route protection</text>
+            </g>
+            <g class="arch-node api-node" transform="translate(300 72)">
+              <rect width="200" height="150" rx="16" />
+              <text class="node-tag" x="18" y="30">APPLICATION</text>
+              <text class="node-title" x="18" y="67">Express REST API</text>
+              <text x="18" y="97">JWT · RBAC · Validation</text>
+              <text x="18" y="120">Parameterized queries</text>
+            </g>
+            <g class="arch-node database-node" transform="translate(562 72)">
+              <rect width="188" height="150" rx="16" />
+              <text class="node-tag" x="18" y="30">DATA</text>
+              <text class="node-title" x="18" y="67">MySQL</text>
+              <text x="18" y="97">10 related tables</text>
+              <text x="18" y="120">Keys · Constraints</text>
+            </g>
+            <text class="flow-label" x="246" y="120">HTTPS / JSON</text>
+            <text class="flow-label" x="510" y="120">mysql2</text>
+            <g class="security-strip" transform="translate(30 260)">
+              <rect width="720" height="48" rx="12" />
+              <text x="360" y="30" text-anchor="middle">bcrypt login  →  8-hour JWT  →  server role check  →  scoped records</text>
+            </g>
+          </svg>
+        </section>
+
+        <section class="panel panel-ink implementation-panel">
+          <div class="section-label">06 · Implementation</div>
+          <div class="panel-heading-row"><h2>Role-aware interface</h2><span>React UI</span></div>
+          <div class="screen-grid">
+            <div class="app-screen">
+              <aside><b>Haven</b><i></i><i></i><i></i><i></i><i></i></aside>
+              <div class="screen-body"><small>DASHBOARD</small><h4>Good morning, Admin</h4>
+                <div class="mini-stats"><span><b>9</b>Flats</span><span><b>10</b>Residents</span><span><b>2</b>Open</span></div>
+                <div class="mini-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="app-screen">
+              <aside><b>Haven</b><i></i><i></i><i></i><i></i><i></i></aside>
+              <div class="screen-body"><small>COMPLAINTS</small><h4>Service requests</h4>
+                <div class="mini-table"><span>Lift not working <b>Open</b></span><span>Water pressure <b>Active</b></span><span>Parking light <b>Done</b></span><span>Noise issue <b>Open</b></span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel roles-panel">
+          <div class="section-label">07 · Role-Based Access</div>
+          <div class="role-layout">
+            <div><h2>Right tools.<br />Right records.</h2><p>The API authorizes every action; resident accounts only see linked flat and personal records.</p></div>
+            <div class="role-list"><span>Admin</span><span>Committee</span><span>Secretary</span><span>Resident</span><span>Security</span><span>Housekeeping</span><span>Maintenance</span></div>
+          </div>
+        </section>
+
+        <section class="panel panel-sun testing-panel">
+          <div class="section-label">08 · Results &amp; Testing</div>
+          <h2>Verified end to end</h2>
+          <div class="check-grid">
+            <span>✓ Protected JWT routes</span><span>✓ CRUD for 10 resources</span>
+            <span>✓ Server-side authorization</span><span>✓ MySQL constraints</span>
+            <span>✓ Validation &amp; errors</span><span>✓ Postman API collection</span>
+          </div>
+        </section>
+
+        <section class="panel outcomes-panel">
+          <div class="outcome-block">
+            <div class="section-label">09 · Conclusion</div>
+            <h3>Centralized and accountable</h3>
+            <p>One reliable source for community records, access, and daily workflows.</p>
+          </div>
+          <div class="outcome-block future-block">
+            <div class="section-label">10 · Future Scope</div>
+            <ul class="compact-list"><li>Payment integrations</li><li>Mobile / PWA access</li><li>Analytics and reports</li></ul>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <footer class="poster-footer">
+      <p><strong>Technology:</strong> React · Express · MySQL · JWT · bcrypt · REST · Postman</p>
+      <p><strong>References:</strong> Project README · MySQL Docs · React Docs · Express Docs</p>
+      <div class="footer-mark">HAVEN<br /><span>SOCIETY MANAGEMENT</span></div>
+    </footer>
+  </main>
+</body>
+</html>

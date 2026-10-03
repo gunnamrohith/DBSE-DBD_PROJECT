@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="720" viewBox="0 0 1600 720" role="img" aria-labelledby="title description">
+  <title id="title">Haven Society Management system architecture</title>
+  <desc id="description">Users connect to a React and Vite web application, which communicates through a JWT-secured REST API with an Express server backed by MySQL.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="13" flood-color="#17324d" flood-opacity="0.13"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M1 1l10 5-10 5z" fill="#29435e"/>
+    </marker>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fafdff"/>
+      <stop offset="1" stop-color="#e8f5fb"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0v40" fill="none" stroke="#b9d7e6" stroke-width="1" opacity="0.28"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="720" rx="34" fill="url(#background)"/>
+  <rect width="1600" height="720" rx="34" fill="url(#grid)"/>
+
+  <text x="70" y="76" fill="#17324d" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="34" font-weight="800">SYSTEM ARCHITECTURE</text>
+  <text x="70" y="112" fill="#5c7183" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="19">Secure three-tier flow for Haven Society Management</text>
+  <rect x="70" y="132" width="100" height="6" rx="3" fill="#ef6a51"/>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="215" width="260" height="270" rx="20" fill="#ffffff" stroke="#d2e3ec" stroke-width="2"/>
+    <rect x="70" y="215" width="260" height="12" rx="6" fill="#f0aa37"/>
+    <circle cx="200" cy="294" r="43" fill="#fff4da"/>
+    <circle cx="200" cy="278" r="14" fill="none" stroke="#b9770e" stroke-width="6"/>
+    <path d="M169 324c5-22 17-32 31-32s26 10 31 32" fill="none" stroke="#b9770e" stroke-width="6" stroke-linecap="round"/>
+    <text x="200" y="374" text-anchor="middle" fill="#17324d" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="27" font-weight="800">Society Users</text>
+    <text x="200" y="410" text-anchor="middle" fill="#64798a" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="17">Admin  |  Staff  |  Resident</text>
+    <rect x="113" y="436" width="174" height="31" rx="15" fill="#fff4da"/>
+    <text x="200" y="457" text-anchor="middle" fill="#93600d" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="14" font-weight="700">ROLE-BASED ACCESS</text>
+
+    <rect x="445" y="215" width="300" height="270" rx="20" fill="#ffffff" stroke="#b9d8ee" stroke-width="2"/>
+    <rect x="445" y="215" width="300" height="12" rx="6" fill="#3481bd"/>
+    <circle cx="595" cy="294" r="43" fill="#e9f4fc"/>
+    <rect x="566" y="273" width="58" height="39" rx="4" fill="none" stroke="#2870a8" stroke-width="5"/>
+    <path d="M578 324h34m-17-12v12" fill="none" stroke="#2870a8" stroke-width="5" stroke-linecap="round"/>
+    <text x="595" y="374" text-anchor="middle" fill="#17324d" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="27" font-weight="800">React + Vite</text>
+    <text x="595" y="410" text-anchor="middle" fill="#64798a" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="17">Dashboard  |  Forms  |  Routes</text>
+    <rect x="514" y="436" width="162" height="31" rx="15" fill="#e9f4fc"/>
+    <text x="595" y="457" text-anchor="middle" fill="#286b9d" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="14" font-weight="700">WEB APPLICATION</text>
+
+    <rect x="860" y="215" width="300" height="270" rx="20" fill="#ffffff" stroke="#f2c9c1" stroke-width="2"/>
+    <rect x="860" y="215" width="300" height="12" rx="6" fill="#ef6a51"/>
+    <circle cx="1010" cy="294" r="43" fill="#fff0ec"/>
+    <path d="M982 278h56M982 294h56M982 310h56" fill="none" stroke="#cc4e39" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="990" cy="278" r="2.5" fill="#cc4e39"/><circle cx="990" cy="294" r="2.5" fill="#cc4e39"/><circle cx="990" cy="310" r="2.5" fill="#cc4e39"/>
+    <text x="1010" y="374" text-anchor="middle" fill="#17324d" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="27" font-weight="800">Express REST API</text>
+    <text x="1010" y="410" text-anchor="middle" fill="#64798a" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="17">Auth  |  Validation  |  CRUD</text>
+    <rect x="925" y="436" width="170" height="31" rx="15" fill="#fff0ec"/>
+    <text x="1010" y="457" text-anchor="middle" fill="#b64330" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="14" font-weight="700">SERVER LOGIC</text>
+
+    <rect x="1275" y="215" width="255" height="270" rx="20" fill="#ffffff" stroke="#bce0d7" stroke-width="2"/>
+    <rect x="1275" y="215" width="255" height="12" rx="6" fill="#1a9879"/>
+    <circle cx="1402" cy="294" r="43" fill="#e8f7f2"/>
+    <ellipse cx="1402" cy="275" rx="29" ry="12" fill="none" stroke="#14785f" stroke-width="5"/>
+    <path d="M1373 275v35c0 7 13 12 29 12s29-5 29-12v-35m-58 17c0 7 13 12 29 12s29-5 29-12" fill="none" stroke="#14785f" stroke-width="5"/>
+    <text x="1402" y="374" text-anchor="middle" fill="#17324d" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="27" font-weight="800">MySQL</text>
+    <text x="1402" y="410" text-anchor="middle" fill="#64798a" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="17">Central society records</text>
+    <rect x="1333" y="436" width="138" height="31" rx="15" fill="#e8f7f2"/>
+    <text x="1402" y="457" text-anchor="middle" fill="#116a55" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="14" font-weight="700">DATA LAYER</text>
+  </g>
+
+  <path d="M330 350h91" fill="none" stroke="#29435e" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M745 350h91" fill="none" stroke="#29435e" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M1160 350h91" fill="none" stroke="#29435e" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="375" y="329" text-anchor="middle" fill="#526b7e" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="14" font-weight="700">BROWSER</text>
+  <text x="790" y="329" text-anchor="middle" fill="#526b7e" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="14" font-weight="700">HTTPS / JSON</text>
+  <text x="1205" y="329" text-anchor="middle" fill="#526b7e" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="14" font-weight="700">SQL</text>
+
+  <g transform="translate(250 550)">
+    <rect width="1100" height="105" rx="18" fill="#17324d"/>
+    <circle cx="68" cy="52" r="27" fill="#284b68"/>
+    <rect x="57" y="48" width="22" height="20" rx="3" fill="none" stroke="#ffffff" stroke-width="3"/>
+    <path d="M61 48v-7a7 7 0 0114 0v7" fill="none" stroke="#ffffff" stroke-width="3"/>
+    <text x="113" y="45" fill="#ffffff" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="18" font-weight="800">SECURITY ACROSS EVERY LAYER</text>
+    <text x="113" y="73" fill="#c9d9e5" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="16">bcrypt passwords</text>
+    <circle cx="345" cy="67" r="4" fill="#ef6a51"/>
+    <text x="368" y="73" fill="#c9d9e5" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="16">8-hour JWT sessions</text>
+    <circle cx="600" cy="67" r="4" fill="#f0aa37"/>
+    <text x="623" y="73" fill="#c9d9e5" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="16">Server-side RBAC</text>
+    <circle cx="840" cy="67" r="4" fill="#36b18e"/>
+    <text x="863" y="73" fill="#c9d9e5" font-family="Avenir Next, Trebuchet MS, sans-serif" font-size="16">Scoped data access</text>
+  </g>
+</svg>
